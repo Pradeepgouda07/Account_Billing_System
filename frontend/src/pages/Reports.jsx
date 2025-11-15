@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { API_BASE } from "../api";
 
-export default function Reports() {   // ✅ must be a default export
+export default function Reports() {
+  // ✅ must be a default export
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [report, setReport] = useState(null);
@@ -52,23 +53,33 @@ export default function Reports() {   // ✅ must be a default export
 
       {report && (
         <div>
-          <h4>Report for {month}/{year}</h4>
+          <h4>
+            Report for {month}/{year}
+          </h4>
           <table className="table">
             <tbody>
               <tr>
-                <td><strong>Total Invoices</strong></td>
+                <td>
+                  <strong>Total Invoices</strong>
+                </td>
                 <td>{report.totalInvoices}</td>
               </tr>
               <tr>
-                <td><strong>Total Payments</strong></td>
+                <td>
+                  <strong>Total Payments</strong>
+                </td>
                 <td>{report.totalPayments}</td>
               </tr>
               <tr>
-                <td><strong>Total Expenses</strong></td>
+                <td>
+                  <strong>Total Expenses</strong>
+                </td>
                 <td>{report.totalExpenses}</td>
               </tr>
               <tr>
-                <td><strong>Net Income</strong></td>
+                <td>
+                  <strong>Net Income</strong>
+                </td>
                 <td>{report.netIncome}</td>
               </tr>
             </tbody>

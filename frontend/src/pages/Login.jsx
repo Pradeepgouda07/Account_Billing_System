@@ -5,7 +5,7 @@ import { API_BASE } from "../api";
 import "./Login.css";
 
 export default function Login() {
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ username: "", password: "" });
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -30,7 +30,7 @@ export default function Login() {
             placeholder="Email"
             className="login-input"
             value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            onChange={(e) => setForm({ ...form, username: e.target.value })}
             required
           />
           <input
@@ -41,16 +41,13 @@ export default function Login() {
             onChange={(e) => setForm({ ...form, password: e.target.value })}
             required
           />
-          <button type="submit" className="login-btn">
+          <button type="submit" onClick={handleSubmit} className="login-btn">
             Login
           </button>
         </form>
         <div className="login-footer">
           <span>New user? </span>
-          <button
-            className="signup-btn"
-            onClick={() => navigate("/signup")}
-          >
+          <button className="signup-btn" onClick={() => navigate("/signup")}>
             Sign Up
           </button>
         </div>

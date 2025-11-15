@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const verifyToken = (req, res, next) => {
-
   const token = req.headers["authorization"]?.split(" ")[1];
   if (!token)
     return res
@@ -16,7 +15,7 @@ const verifyToken = (req, res, next) => {
 };
 const requireRole = (role) => (req, res, next) => {
   if (!req.user || req.user.role !== role) {
-    console.log(req.user);
+    console.log("user", req.user);
     return res
       .status(403)
       .json({ message: "Forbidden. You do not have the required role." });

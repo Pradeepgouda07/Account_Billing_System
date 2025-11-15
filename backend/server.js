@@ -13,8 +13,7 @@ const reportRoutes = require("./routes/reports");
 const ledgerRoutes = require("./routes/ledgers");
 const dashboardRoutes = require("./routes/dashboard");
 
-
-const {verifyToken, requireRole } = require("./middleware/auth");
+const { verifyToken, requireRole } = require("./middleware/auth");
 
 const app = express();
 
@@ -40,10 +39,11 @@ app.use("/api/invoices", verifyToken, invoiceRoutes);
 app.use("/api/ledger", verifyToken, ledgerRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 
-
 // Admin-only routes
-app.use("/api/admin",verifyToken, requireRole("admin"), adminRoutes);
-app.use("/api/reports", verifyToken, requireRole("admin"), reportRoutes);
+app.use("/api/admin", verifyToken, requireRole("admin"), adminRoutes);
+
+// Reports route for all authenticated users
+app.use("/api/reports", verifyToken, reportRoutes);
 
 // Basic test route
 app.get("/", (req, res) => {

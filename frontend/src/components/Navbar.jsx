@@ -18,16 +18,13 @@ export default function Navbar() {
 
         {/* Right Side */}
         <div className="d-flex align-items-center">
-          <span className="text-white me-3 small">Welcome, Admin</span>
+          <span className="text-white me-3 small">Welcome!</span>
           <FaUserCircle className="text-white fs-4" />
         </div>
       </div>
     </nav>
   );
 }
-
-
-
 
 // import React, { useState } from "react";
 // import { FaUserCircle } from "react-icons/fa";
